@@ -13,3 +13,14 @@ Open your account settings and click on the download a copy of your Facebook dat
 A couple of hours later you'll receive an email with the link to download the zipped archive.
 
 Unzip into some directory (and set your working directory to it). Of interest is 'wall.html' in the 'html' subdirectory. You can open it and check it out. We'll use it.
+
+```
+## We can split the whole wall into my posts and everyone else's posts
+my.posts <- wall[wall$author==my.FB.name,]
+their.posts <- wall[wall$author!=my.FB.name,]
+
+## And then figure out who has left the most posts on my wall!
+head(sort(table(their.posts$author),decreasing=T),10)
+
+## And do all sorts of cool analysis and text mining!
+```

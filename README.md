@@ -14,6 +14,15 @@ A couple of hours later you'll receive an email with the link to download the zi
 
 Unzip into some directory (and set your working directory to it). Of interest is 'wall.html' in the 'html' subdirectory. You can open it and check it out. We'll use it.
 
+After running the script, you'll have a data frame called **wall** in which every row is a wall post. There are six columns:
+
+- *author* (since your wall consists of your own posts and posts left on your wall by friends)
+- *text* (raw entry content i.e. includes "\n"s)
+- *timestamp* (raw)
+- *likes* (if any)
+- *url* (if a link was attached)
+- *datetime* (chron object, used for sorting from oldest to newest)
+
 ```
 ## We can split the whole wall into my posts and everyone else's posts
 my.posts <- wall[wall$author==my.FB.name,]

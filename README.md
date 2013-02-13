@@ -12,4 +12,4 @@ Open your account settings and click on the download a copy of your Facebook dat
 
 A couple of hours later you'll receive an email with the link to download the zipped archive.
 
-Unzip into some directory ('facebook data' for me). Of interest is 'wall.html' in the 'html' subdirectory. You can open it and check it out. We'll use it.
+Unzip into some directory (and set your working directory to it). Of interest is 'wall.html' in the 'html' subdirectory. You can open it and check it out. We'll use it.

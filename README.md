@@ -36,7 +36,7 @@ head(sort(table(their.posts$author),decreasing=T),10)
 ## And do all sorts of cool analysis and text mining!
 ```
 
-**Update** The wall data frame now has the number of comments for each post and creates a comments data frame. There are five columns:
+**Update** The wall data frame now has the number of comments for each post and the script creates a comments data frame. There are five columns:
 
 - *postid* (used for linking comments to posts; see below)
 - *author* (since your wall consists of your own posts and posts left on your wall by friends)

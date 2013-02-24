@@ -6,6 +6,8 @@ Facebook archive extraction in R
 | email   | [mpopov@cmu.edu](mailto:mpopov@cmu.edu)|
 | web     | [http://www.mpopov.com](http://www.mpopov.com)           |
 
+## Description
+
 R script[s] to extract data from archives that Facebook allows its users to download.
 
 Open your account settings and click on the download a copy of your Facebook data link there to get to the following page.
@@ -26,17 +28,25 @@ After running the script, you'll have a data frame called **wall** in which ever
 - *datetime* (chron object, used for sorting from oldest to newest)
 
 ```
-## We can split the whole wall into my posts and everyone else's posts
+# We can split the whole wall into my posts and everyone else's posts
 my.posts <- wall[wall$author==my.FB.name,]
 their.posts <- wall[wall$author!=my.FB.name,]
 
-## And then figure out who has left the most posts on my wall!
+# And then figure out who has left the most posts on my wall!
 head(sort(table(their.posts$author),decreasing=T),10)
 
-## And do all sorts of cool analysis and text mining!
+# And do all sorts of cool analysis and text mining!
 ```
 
-**Update** The wall data frame now has the number of comments for each post and the script creates a comments data frame. There are five columns:
+## Very Basic EDA
+
+```
+par(mfrow=c(1,2))
+hist(wall$datetime,breaks=50); title("Frequency of Wall Posts by Date")
+hist(comments$datetime,breaks=50); title("Frequency of Comments by Date")
+```
+
+## Update The wall data frame now has the number of comments for each post and the script creates a comments data frame. There are five columns:
 
 - *postid* (used for linking comments to posts; see below)
 - *author* (since your wall consists of your own posts and posts left on your wall by friends)
@@ -45,7 +55,7 @@ head(sort(table(their.posts$author),decreasing=T),10)
 - *datetime* (chron object, used for sorting from oldest to newest)
 
 ```
-## Figure out who has left the most comments across all the posts!
+# Figure out who has left the most comments across all the posts!
 head(sort(table(comments$author),decreasing=T),10)
 ```
 
@@ -59,3 +69,4 @@ sqldf(paste("SELECT wall.id, COUNT(*) AS comments FROM wall
 	  WHERE wall.author LIKE '",my.FB.name,"'
 	  GROUP BY wall.id",sep=""))
 ```
+

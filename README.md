@@ -33,3 +33,21 @@ head(sort(table(their.posts$author),decreasing=T),10)
 
 ## And do all sorts of cool analysis and text mining!
 ```
+
+**Update** The wall data frame now has the number of comments for each post and creates a comments data frame.
+
+```
+## Figure out who has left the most comments across all the posts!
+head(sort(table(comments$author),decreasing=T),10)
+```
+
+Each comment has an identifier which can be used to link it to any wall post. Although the script calculates the number of comments for each post, how can we use these two data frames to obtain the number of comments for posts only made by me? We can accomplish this using the sqldf package:
+
+```
+install.packages("sqldf")
+library(sqldf)
+sqldf(paste("SELECT wall.id, COUNT(*) AS comments FROM wall
+	  JOIN comments ON wall.id = comments.postid
+	  WHERE wall.author LIKE '",my.FB.name,"'
+	  GROUP BY wall.id",sep=""))
+```

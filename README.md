@@ -16,10 +16,12 @@ Unzip into some directory (and set your working directory to it). Of interest is
 
 After running the script, you'll have a data frame called **wall** in which every row is a wall post. There are six columns:
 
+- *id* (used for linking comments to posts; see below)
 - *author* (since your wall consists of your own posts and posts left on your wall by friends)
 - *text* (raw entry content i.e. includes "\n"s)
 - *timestamp* (raw)
 - *likes* (if any)
+- *comments* (number of comments)
 - *url* (if a link was attached)
 - *datetime* (chron object, used for sorting from oldest to newest)
 
@@ -34,7 +36,13 @@ head(sort(table(their.posts$author),decreasing=T),10)
 ## And do all sorts of cool analysis and text mining!
 ```
 
-**Update** The wall data frame now has the number of comments for each post and creates a comments data frame.
+**Update** The wall data frame now has the number of comments for each post and creates a comments data frame. There are five columns:
+
+- *postid* (used for linking comments to posts; see below)
+- *author* (since your wall consists of your own posts and posts left on your wall by friends)
+- *content* (raw comment text i.e. includes "\n"s)
+- *timestamp* (raw)
+- *datetime* (chron object, used for sorting from oldest to newest)
 
 ```
 ## Figure out who has left the most comments across all the posts!

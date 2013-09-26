@@ -3,7 +3,7 @@ Facebook archive extraction in R
 
 | By      | Mikhail Y. Popov                                         |
 | :---    | :---                                                     |
-| email   | [mpopov@cmu.edu](mailto:mpopov@cmu.edu)|
+| email   | [mikhail@mpopov.com](mailto:mikhail@mpopov.com)|
 | web     | [http://www.mpopov.com](http://www.mpopov.com)           |
 
 ## Description
